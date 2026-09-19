@@ -20,3 +20,22 @@ def get_file_content(working_directory: str, file_path: str) -> str:
         return content
     except Exception as e: 
         return f"Error: {e}"
+
+schema_get_file_content = {
+   "type": "function",
+    "function": {
+        "name": "get_file_content", 
+        "description": "Display the contents of a file with a hard limit of 10000 characters, MAX_CHARS variable set in configs.py",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "required": {
+                    "file_path": {
+                        "type": "string",
+                        "description": "File name from which to display contents, file must be within the working directory"
+                },
+                },
+            },
+        },
+    },
+}
