@@ -4,6 +4,7 @@ from openai import OpenAI
 import argparse
 from prompts import system_prompt
 from call_functions import available_functions
+from functions.call_function import call_function
 import json
 
 def generate_content(client, messages):
@@ -55,7 +56,11 @@ def main():
             print(f"Calling function: {tool_call.function.name}({function_args})")
     else:
         print(message.content)
-    
+    result_message = call_function(tool_call)
+    if not result_message['content']:
+        raise Exception
+    if result_message.verbose:
+        print(f"-> {result_message['content']}")
 
 if __name__ == "__main__":
     main()
