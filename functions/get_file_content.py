@@ -1,5 +1,7 @@
 import os
+
 from config import MAX_CHARS
+
 
 def get_file_content(working_directory: str, file_path: str) -> str:
     
@@ -29,11 +31,9 @@ schema_get_file_content = {
         "parameters": {
             "type": "object",
             "properties": {
-                "required": {
                     "file_path": {
                         "type": "string",
                         "description": "File name from which to display contents, file must be within the working directory"
-                },
                 },
             },
         },

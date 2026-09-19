@@ -1,6 +1,7 @@
 import os
 import subprocess
 
+
 def run_python_file(working_directory: str, file_path: str, args: list[str] | None = None) -> str:
     try: 
         absolute_path = os.path.abspath(working_directory)
@@ -36,11 +37,9 @@ schema_run_python_file = {
         "parameters": {
             "type": "object",
             "properties": {
-                "required": {
-                    "file_path": {
-                        "type": "string",
-                        "description": "The file path to the location of the Python file to run",
-                    },
+                "file_path": {
+                    "type": "string",
+                    "description": "The file path to the location of the Python file to run",
                 },
                 "args": {
                         "type":"array",

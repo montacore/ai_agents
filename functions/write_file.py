@@ -1,5 +1,6 @@
 import os
 
+
 def write_file(working_directory: str, file_path: str, content: str) -> str:
     try:
         abs_path = os.path.abspath(working_directory)
@@ -26,7 +27,6 @@ schema_write_file = {
         "parameters": {
             "type": "object",
             "properties": {
-                "required": {
                     "file_path": {
                         "type": "string",
                         "description": "name of the file in which to write content to, must be contained within working directory"
@@ -35,7 +35,6 @@ schema_write_file = {
                         "type": "string",
                         "description": "The data to be written to the file"
                     },
-                },
             },
         },
     },
